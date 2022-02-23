@@ -6,9 +6,12 @@
 import { CSSProperties } from "react";
 import { ActionValue, EditableValue } from "mendix";
 
-export type PlacementEnum = "auto" | "top" | "bottom" | "left" | "right";
+export type PlacementEnum = "auto" | "top" | "bottom" | "left" | "right" | "center";
 
 export interface ListOfStepsType {
+    afterStepAction: ActionValue;
+    beforeStepAction: ActionValue;
+    delayBeforeStep: integer;
     target: string;
     title: string;
     content: string;
@@ -27,8 +30,7 @@ export interface ReactAppGuideContainerProps {
     class: string;
     style?: CSSProperties;
     tabIndex: number;
-    userWelcome: EditableValue<boolean>;
-    onUserWelcomeChange?: ActionValue;
+    onComplete?: ActionValue;
     isPageCall: boolean;
     showSkipButton: boolean;
     showProgress: boolean;

@@ -4,15 +4,18 @@
  * @author Mendix UI Content Team
  */
 import { CSSProperties } from "react";
-import { ActionValue, EditableValue } from "mendix";
+import { ActionValue } from "mendix";
 
-export type PlacementEnum = "auto" | "top" | "bottom" | "left" | "right";
+export type PlacementEnum = "auto" | "top" | "bottom" | "left" | "right" | "center";
 
 export interface ListOfStepsType {
     target: string;
     title: string;
     content: string;
     placement: PlacementEnum;
+    beforeStepAction?: ActionValue;
+    delayBeforeStep: number;
+    afterStepAction?: ActionValue;
 }
 
 export interface ListOfStepsPreviewType {
@@ -20,6 +23,9 @@ export interface ListOfStepsPreviewType {
     title: string;
     content: string;
     placement: PlacementEnum;
+    beforeStepAction: {} | null;
+    delayBeforeStep: number | null;
+    afterStepAction: {} | null;
 }
 
 export interface AppGuideContainerProps {
@@ -27,8 +33,7 @@ export interface AppGuideContainerProps {
     class: string;
     style?: CSSProperties;
     tabIndex: number;
-    userWelcome: EditableValue<boolean>;
-    onUserWelcomeChange?: ActionValue;
+    onComplete?: ActionValue;
     isPageCall: boolean;
     showSkipButton: boolean;
     showProgress: boolean;
@@ -43,8 +48,7 @@ export interface AppGuideContainerProps {
 export interface AppGuidePreviewProps {
     class: string;
     style: string;
-    userWelcome: string;
-    onUserWelcomeChange: {} | null;
+    onComplete: {} | null;
     isPageCall: boolean;
     showSkipButton: boolean;
     showProgress: boolean;

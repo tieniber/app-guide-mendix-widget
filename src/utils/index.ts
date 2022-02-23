@@ -37,8 +37,15 @@ export const reFormattedList = (listOfSteps: ListOfStepsType[]): [] => {
 export const findAndTriggerScroll = (target: string): any => {
     console.log("target", target);
     const sanitizedTarget = target.replace(/\./g, "");
-    const element = document.getElementsByClassName(sanitizedTarget);
-    return element && element[0].scrollIntoView({ block: "center" });
+    const elements = document.getElementsByClassName(sanitizedTarget);
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
+    for (let i = 0; i < elements.length; i++) {
+        const element = elements[i] as HTMLElement;
+        if (element.offsetWidth > 0 && element.offsetHeight > 0) {
+            return element && element.scrollIntoView({ block: "center" });
+        }
+    }
+    return null;
 };
 
 // console.log("listOfSteps", listOfSteps);

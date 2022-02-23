@@ -6,8 +6,8 @@
     "copyright": "2020 Mendix Technology BV",
     "author": "Arno Welgemoed",
     "config": {
-        "projectPath": "./tests/testProject/",
-        "mendixHost": "http://10.211.55.3:8080",
+        "projectPath": "/Volumes/[C] Windows 10/Mendix/Avantax/ClientPortal-main",
+        "mendixHost": "http://localhost:8080",
         "developmentPort": "3000"
     },
     "packagePath": "mendix",
